@@ -5,6 +5,15 @@ public class ParentExample {
     public int parent_value2;
     static int parent_static_value;
 
+    public String text;
+
+    public ParentExample() {
+
+    }
+    public ParentExample(String text) {
+        this.text = text;
+    }
+
     public void printHelloWorld () {
         System.out.println("Hello World !!!");
     }
