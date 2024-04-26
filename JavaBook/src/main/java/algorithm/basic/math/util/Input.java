@@ -3,19 +3,23 @@ package algorithm.basic.math.util;
 import java.util.Scanner;
 
 public class Input {
-        public int intInput() {
-            int number;
+     public int intInput() {
+         return intInput(0,1000000);
+     }
 
-            Scanner sc = new Scanner(System.in);
-            do {
-                System.out.print(">> ");
-                number = sc.nextInt();
-                if(number<0 || number>1000000) System.out.println("입력 범위를 확인하세요");
-            }while(number<0 || number>1000000);
+    public int intInput(int min_range, int max_range) {
+        int number;
 
-            sc.close();
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.print(">> ");
+            number = sc.nextInt();
+            if(number<min_range || number>max_range) System.out.println("입력 범위를 확인하세요");
+        }while(number<min_range || number>max_range);
 
-            return number;
-        }
+        sc.close();
+
+        return number;
+    }
 
 }
