@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PrimeFactorTest {
     @Test
-    public void avgExamTest() {
+    public void primFactorTest() {
         PrimeFactor pf = new PrimeFactor();
 
         pf.primeFactorization(9991);
