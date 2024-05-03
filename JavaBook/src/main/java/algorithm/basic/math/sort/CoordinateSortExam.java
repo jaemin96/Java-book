@@ -1,7 +1,8 @@
 package algorithm.basic.math.sort;
 
-import java.util.List;
-import java.util.Map;
+import algorithm.basic.math.util.Input;
+
+import java.util.*;
 
 public class CoordinateSortExam extends Sort {
     public List<Map<String, Integer>> CoordinateSortByAsc(List<Map<String, Integer>> array) {
@@ -31,6 +32,40 @@ public class CoordinateSortExam extends Sort {
         return array;
     }
     public static void main(String[] args) {
+        Input ipt = new Input();
+        CoordinateSortExam cds = new CoordinateSortExam();
+        Scanner sc = new Scanner(System.in);
+        List<Map<String, Integer>> cdArray = new ArrayList<>();
 
+        int coordinateCount;
+        System.out.print(" >> ");
+        coordinateCount = ipt.intInput(sc, 0, 1000);
+
+        for (int i=0; i<coordinateCount; i++) {
+            int x,y;
+            Map<String, Integer> map = new HashMap<>();
+
+            System.out.print("(x,y) >> ");
+            x = ipt.intInput(sc,-1001, 1001);
+            y = ipt.intInput(sc, -1001, 1001);
+
+            map.put("x", x);
+            map.put("y", y);
+
+            cdArray.add(map);
+        };
+
+        // 정렬 전 배열
+        for (Map<String, Integer> map : cdArray) {
+            System.out.println(map);
+        }
+
+        // 배열 정렬
+        List<Map<String,Integer>> newArray = cds.CoordinateSortByAsc(cdArray);
+
+        // 정렬 후 배열
+        for (Map<String, Integer> map : newArray) {
+            System.out.println(map);
+        }
     }
 }
