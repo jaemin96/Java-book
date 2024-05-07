@@ -18,4 +18,7 @@ public class Input {
         return number;
     }
 
+    public String strInput(Scanner sc) {
+         return sc.next();
+    }
 }
