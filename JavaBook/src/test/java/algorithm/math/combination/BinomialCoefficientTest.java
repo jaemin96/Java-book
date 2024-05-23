@@ -3,6 +3,8 @@ package algorithm.math.combination;
 import algorithm.basic.math.combination.BinomialCoefficient;
 import org.junit.jupiter.api.*;
 
+import java.math.BigInteger;
+
 public class BinomialCoefficientTest {
 
     BinomialCoefficient bc;
@@ -20,9 +22,9 @@ public class BinomialCoefficientTest {
             int n = 5;
             int k = 2;
             int expectedCount = 10;
-            int actualCount = bc.binomialCoefficient(n,k);
+            BigInteger actualCount = bc.binomialCoefficient(n,k);
 
-            Assertions.assertEquals(expectedCount, actualCount);
+            Assertions.assertEquals(new BigInteger(expectedCount+""), actualCount);
         }
     }
 
@@ -34,9 +36,9 @@ public class BinomialCoefficientTest {
         void symmetryCheck() {
             int n = 5;
             int k = 3;
-            int original = bc.binomialCoefficient(n,k);
-            int symmetry = bc.binomialCoefficient(n,n-k);
-            Assertions.assertEquals(original, symmetry);
+            BigInteger original = bc.binomialCoefficient(n,k);
+            BigInteger symmetry = bc.binomialCoefficient(n,n-k);
+            Assertions.assertEquals(new BigInteger(original+""), symmetry);
         }
 
         @Test
@@ -44,8 +46,8 @@ public class BinomialCoefficientTest {
         void pascalCheck() {
             int n = 6;
             int k = 3;
-            int original = bc.binomialCoefficient(n,k);
-            int pascal = bc.binomialCoefficient(n-1, k-1) + bc.binomialCoefficient(n-1, k);
+            BigInteger original = bc.binomialCoefficient(n,k);
+            BigInteger pascal = bc.binomialCoefficient(n-1, k-1).add(bc.binomialCoefficient(n-1, k));
             Assertions.assertEquals(original,pascal);
         }
 
@@ -53,8 +55,8 @@ public class BinomialCoefficientTest {
         @DisplayName("Check value boundary-condition - (n,0) | (n,n) == 1")
         void boundaryConditionCheck() {
             int n = 6;
-            Assertions.assertEquals(1, bc.binomialCoefficient(n,0));
-            Assertions.assertEquals(1, bc.binomialCoefficient(n,n));
+            Assertions.assertEquals(BigInteger.ONE, bc.binomialCoefficient(n,0));
+            Assertions.assertEquals(BigInteger.ONE, bc.binomialCoefficient(n,n));
         }
     }
 }

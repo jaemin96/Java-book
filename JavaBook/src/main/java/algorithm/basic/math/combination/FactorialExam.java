@@ -1,16 +1,17 @@
 package algorithm.basic.math.combination;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FactorialExam {
-    Map<String, Integer> factorCache;
+    Map<String, BigInteger> factorCache;
     public FactorialExam() {
         factorCache = new HashMap<>();
     }
 
-    public int factorial(int n) {
-        int value = 1;
+    public BigInteger factorial(int n) {
+        BigInteger value = BigInteger.ONE;
         String key = n + "!";
 
         /*
@@ -23,7 +24,7 @@ public class FactorialExam {
             if(factorCache.containsKey(key)) {
                 return factorCache.get(key);
             }else {
-                value = n * factorial(n-1);
+                value = BigInteger.valueOf(n).multiply(factorial(n - 1));
                 factorCache.put(key, value);
             }
         }

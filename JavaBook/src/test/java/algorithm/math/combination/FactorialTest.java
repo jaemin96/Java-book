@@ -4,6 +4,8 @@ import algorithm.basic.math.combination.FactorialExam;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
+
 public class FactorialTest {
   @Test
   public void factorialTest() {
@@ -11,8 +13,8 @@ public class FactorialTest {
 
       int n = 3;
       int expectedValue = 6;
-      int actualValue = factor.factorial(n);
+      BigInteger actualValue = factor.factorial(n);
 
-      Assertions.assertEquals(expectedValue, actualValue);
+      Assertions.assertEquals(new BigInteger(expectedValue+""), actualValue);
   }
 }
