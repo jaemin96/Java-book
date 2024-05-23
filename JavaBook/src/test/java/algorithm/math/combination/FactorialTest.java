@@ -9,8 +9,8 @@ public class FactorialTest {
   public void factorialTest() {
       FactorialExam factor = new FactorialExam();
 
-      int n = 0;
-      int expectedValue = 1;
+      int n = 3;
+      int expectedValue = 6;
       int actualValue = factor.factorial(n);
 
       Assertions.assertEquals(expectedValue, actualValue);

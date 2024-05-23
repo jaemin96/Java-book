@@ -21,7 +21,7 @@ public class FactorialExam {
          */
         if(n > 1) {
             if(factorCache.containsKey(key)) {
-                value = n * factorCache.get(key);
+                return factorCache.get(key);
             }else {
                 value = n * factorial(n-1);
                 factorCache.put(key, value);
